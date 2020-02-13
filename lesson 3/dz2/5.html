@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function add (a, b) {
+    return a+b;
+  }
+  function sub (a, b) {
+    return a-b;
+  }
+  function multy (a, b) {
+    return a*b;
+  }
+  function division (a, b) {
+    if(b!=0) {
+      return a/b;
+    }
+    else {
+      alert("На 0 делить нельзя!")
+    };
+  }
+
+  var a = +prompt("Введите число a");
+  var b = +prompt("Введите число b");
+
+  document.write("Сумма: " + add(a,b) + "<br>Разность: " + sub(a,b) + "<br>Произведение: " + multy(a,b) + "<br>Частное: " + division(a,b));
+  </script>
+</body>
+</html>

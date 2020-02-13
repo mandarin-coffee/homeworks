@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  function add (a, b){
+    return a+b;
+  }
+  function sub (a, b){
+    return a-b;
+  }
+  function multy (a, b){
+    return a*b;
+  }
+  function division (x, b){
+    return a/b;
+  }
+
+  function mathOperation(arg1, arg2, operation){
+    switch (operation){
+      case "add":
+      return add(arg1, arg2);
+      break;
+      case "sub":
+      return sub(arg1, arg2);
+      break;
+      case "multy":
+      return multy(arg1, arg2);
+      break;
+      case "division":
+      return division(arg1, arg2);
+      break;
+      default:
+      return NaN;
+      break;
+    }
+  }
+
+  var a = parseInt(prompt("Введите число a"));
+  var b = parseInt(prompt("Введите число b"));
+  var operation = prompt("Введите операцию над числами: add, sub, multy, division");
+
+  document.write("Результат операции: " + mathOperation(a, b, operation));
+  </script>
+</body>
+</html>
