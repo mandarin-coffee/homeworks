@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    do {
+      var numberInObject = +prompt("Введите трехзначное число от 0 до 999");
+    } while (numberInObject < 0);
+
+    if ((numberInObject / 100) > 1){
+      hundreds = parseInt(numberInObject / 100);
+    } else{
+      hundreds = 0;
+    }
+
+    if ((numberInObject / 100) > 1){
+      dozens = parseInt((numberInObject - (hundreds*100)) / 10);
+    } else{
+      dozens = parseInt(numberInObject / 10);
+    }
+
+    if ((numberInObject / 100) > 1){
+      units = parseInt((numberInObject - (hundreds*100)) - (dozens*10));
+    } else if((numberInObject / 100) > 0){
+      units = parseInt(numberInObject - (dozens*10));
+    } else if((numberInObject / 10) > 0 ){
+      units = parseInt(numberInObject);
+    }
+
+    function Number(hundreds, dozens, units){
+      return {
+        hundreds: hundreds,
+        dozens: dozens,
+        units: units,
+        show: function() {
+          console.log("Сотен: "+this.hundreds,"Десятков: "+this.dozens,"Едениц: "+this.units)// не понял как вывести эту функцию куда либо
+        }
+      }
+    }
+
+    console.log(Number(hundreds, dozens, units));
+  </script>
+</body>
+</html>
