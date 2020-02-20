@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 10px;
+}
+
+.chess {
+  display: grid;
+  grid-template-columns: 50px 400px 50px;
+  width: 500px;
+  outline: 1px solid black;
+  grid-template-areas:
+    ". litters2 ."
+    "numbers1 table numbers2-1"
+    "numbers2 table numbers2-2"
+    "numbers3 table numbers2-3"
+    "numbers4 table numbers2-4"
+    "numbers5 table numbers2-5"
+    "numbers6 table numbers2-6"
+    "numbers7 table numbers2-7"
+    "numbers8 table numbers2-8"
+    ". litters ."
+}
+
+.chessTable {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  outline: 1px solid black;
+  grid-area: table
+}
+
+.numbers:nth-child(2) {
+  grid-area: numbers1;
+}
+
+.numbers:nth-child(3) {
+  grid-area: numbers2;
+}
+
+.numbers:nth-child(4) {
+  grid-area: numbers3;
+}
+
+.numbers:nth-child(5) {
+  grid-area: numbers4;
+}
+
+.numbers:nth-child(6) {
+  grid-area: numbers5;
+}
+
+.numbers:nth-child(7) {
+  grid-area: numbers6;
+}
+
+.numbers:nth-child(8) {
+  grid-area: numbers7;
+}
+
+.numbers:nth-child(9) {
+  grid-area: numbers8;
+}
+
+.numbers2:nth-child(10) {
+  grid-area: numbers2-1;
+}
+
+.numbers2:nth-child(11) {
+  grid-area: numbers2-2;
+}
+
+.numbers2:nth-child(12) {
+  grid-area: numbers2-3;
+}
+
+.numbers2:nth-child(13) {
+  grid-area: numbers2-4;
+}
+
+.numbers2:nth-child(14) {
+  grid-area: numbers2-5;
+}
+
+.numbers2:nth-child(15) {
+  grid-area: numbers2-6;
+}
+
+.numbers2:nth-child(16) {
+  grid-area: numbers2-7;
+}
+
+.numbers2:nth-child(17) {
+  grid-area: numbers2-8;
+}
+
+.numbers, .numbers2, .litters, .litters2 {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.numbers2 {
+  transform: rotate(180deg);
+}
+
+.Cell, .Cell2 {
+  width: 50px;
+  height: 50px;
+}
+
+.Cell:nth-child(odd) {
+  background-color: #fff;
+}
+
+.Cell:nth-child(even) {
+  background-color: #333;
+}
+
+.Cell2:nth-child(even) {
+  background-color: #fff;
+}
+
+.Cell2:nth-child(odd) {
+  background-color: #333;
+}
+
+.litters {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-area: litters;
+}
+
+.litters2 {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-area: litters2;
+}
+
+.lit2 {
+  transform: rotate(180deg);
+}
