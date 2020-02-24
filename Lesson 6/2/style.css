@@ -1,0 +1,66 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 1200px;
+  margin: 0 auto;
+}
+.goods {
+  width: 600px;
+  display: grid;
+  grid-template-columns: 600px;
+}
+
+.good{
+  width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.good:nth-child(even){
+  background-color: #f3f3f3;
+}
+
+.basket {
+  margin-top: 20px;
+  width: 200px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.items{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.items:nth-child(odd){
+  background-color: #e5e5e5;
+}
+.bascketPrice{
+  display: grid;
+  grid-template-areas: "hr hr"
+                       "p1 p2";
+}
+
+.bascketPrice p:nth-child(2){
+  grid-area: p1;
+}
+.bascketPrice p:nth-child(3){
+  grid-area: p2;
+}
+
+hr{
+  width: 90%;
+  margin: 10px auto;
+  grid-area: hr;
+}
+.block{
+  width: 50px;
+  height: 50px;
+}
+.block:nth-child(even){
+  background-color: brown;
+
+}

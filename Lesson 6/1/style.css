@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1200px;
+}
+
+.miniPictures {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-gap: 100px;
+  justify-self: center;
+  margin-bottom: 20px;
+}
+
+.miniPictures img {
+  width: 300px;
+  height: 300px;
+}
+
+.bigPictures img {
+  width: 1200px;
+}
+
+.bigPictures .hidden{
+  display: none;
+}
