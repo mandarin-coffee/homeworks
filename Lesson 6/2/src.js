@@ -37,7 +37,7 @@ for (var i = 0; i < price.length; i++) {
 }
 
 var btns = document.querySelectorAll('.goods .good button');
-for (var i = 0; i < btns.length; i++) {
+for (let i = 0; i < btns.length; i++) {
   btns[i].onclick = function() {
     var items = document.createElement('div');
     items.className = 'items';
@@ -45,5 +45,10 @@ for (var i = 0; i < btns.length; i++) {
     var itemName = document.createElement('p');
     itemName.className = 'itemName';
     document.querySelector('.items').append(itemName);
+    itemName.innerHTML += goods[i];
+    var itemPrice = document.createElement('p');
+    itemPrice.className = 'itemPrice';
+    document.querySelector('.items').append(itemPrice);
+    itemPrice.innerHTML += price[i];
   }
 }
