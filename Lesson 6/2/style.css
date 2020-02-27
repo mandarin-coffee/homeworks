@@ -24,7 +24,7 @@ body{
   background-color: #f3f3f3;
 }
 
-.basket {
+.cart {
   margin-top: 20px;
   width: 200px;
   display: grid;
@@ -38,16 +38,16 @@ body{
 .items:nth-child(odd){
   background-color: #e5e5e5;
 }
-.bascketPrice{
+.cartPrice{
   display: grid;
   grid-template-areas: "hr hr"
                        "p1 p2";
 }
 
-.bascketPrice p:nth-child(2){
+.cartPrice p:nth-child(2){
   grid-area: p1;
 }
-.bascketPrice p:nth-child(3){
+.cartPrice p:nth-child(3){
   grid-area: p2;
 }
 
