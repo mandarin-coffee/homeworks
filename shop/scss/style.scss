@@ -7,7 +7,7 @@
 
 p {
   font-size: 16px;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: 20px;
 }
 
@@ -66,31 +66,42 @@ main {
       }
     }
 
-    .cart {
-      hr {
-        width: 95%;
-        height: 1px;
-        background-color: #C0C0C0;
-        margin: 0 auto;
+
+  }
+
+  .cart {
+    hr {
+      width: 95%;
+      height: 1px;
+      background-color: #C0C0C0;
+      margin: 0 auto;
+    }
+
+    .cartIcon {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        font-size: 24px;
+        margin: 10px;
       }
+    }
 
-      .cartIcon {
-        display: flex;
-        align-items: center;
+    .hide {
+      display: none;
+    }
 
-        i {
-          font-size: 24px;
-          margin: 10px;
-        }
-      }
+    .show {
+      display: block;
+    }
 
-      .amount {
-        display: flex;
-        align-items: center;
+    .amount {
+      display: flex;
+      align-items: center;
 
-        p:nth-child(1) {
-          margin-right: 10px;
-        }
+      p:nth-child(1) {
+        margin-right: 10px;
       }
     }
   }
