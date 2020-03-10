@@ -1,79 +1,81 @@
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
-class ProductList {
+class Shop {
     constructor(container = '.products') {
         this.container = container;
-        this.goods = []; //массив товаров
-        this.allGoods = []; // массив объектов
-        //this._fetchProducts();
-        this._getProducts()
-            .then(data => {
-                this.goods = [...data];
+        this.goods = []; //не понятно зачем этот массив нужен
+        this.arrObj = []; // массив товаров
+        this.getProducts()
+            .then(mambl => {
+                this.goods = [...mambl];
                 this.render()
             });
     }
 
-    // _fetchProducts() {
-    //     this.goods = [
-    //         {id: 1, title: 'Notebook', price: 2000, img: 'img/picNoImg.jpg'},
-    //         {id: 2, title: 'Mouse', price: 20, img: 'img/picNoImg.jpg'},
-    //         {id: 3, title: 'Keyboard', price: 200, img: 'img/picNoImg.jpg'},
-    //         {id: 4, title: 'Gamepad', price: 50, img: 'img/picNoImg.jpg'},
-    //         {id: 5, title: 'Phone', price: 100, img: 'img/picNoImg.jpg'},
-    //         {id: 6, title: 'Monitor', price: 90, img: 'img/picNoImg.jpg'},
-    //     ];
-    // }
-
-    _getProducts() {
-        return fetch(`${API}/catalogData.json`)
-            .then(result => result.json())
-            .catch(error => {
-                console.log(error);
-            })
+    getProducts(){
+        return fetch('https://raw.githubusercontent.com/mandarin-coffee/json/master/goods.json')
+            .then(reason => reason.json())
+            .catch(error => console.log(error));
     }
 
-    render() {
-        const block = document.querySelector(this.container);
-        for (let product of this.goods) {
-            const productObj = new ProductItem(product);
-            this.allGoods.push(productObj);
-            //block.innerHTML += productObj.render();
-            block.insertAdjacentHTML("beforeend", productObj.render());
+    render(){
+        let good = document.querySelector(this.container);
+        for (let product of this.goods){
+            let goodObj = new ShopItem(product);
+            this.arrObj.push(goodObj);
+            good.insertAdjacentHTML('beforeend', goodObj.addHtml());
         }
     }
 }
 
-class ProductItem {
-    constructor(product) {
-        this.title = product.product_name;
-        this.price = product.price;
-        this.img = product.img;
-        this.id = product.id;
+class ShopItem{
+    constructor(itemOfGoods) {
+        this.title = itemOfGoods.title;
+        this.price = itemOfGoods.price;
+        this.quantity = itemOfGoods.quantity;
+        this.id = itemOfGoods.id;
     }
 
-    render() {//верстка для 1 товара
+    addHtml(){
         return `<div class="item">
-                <div class="picture">
-                  <img src="img/picNoImg.jpg" alt="no img">
-                </div>
-                  <p class="title">${this.title}</p>
-                  <p class="price">Цена: ${this.price} &#36;</p>
-                <button class="btn">Купить</button>
-            </div>`
+                    <img src="img/picNoImg.jpg" alt="">
+                    <div class="title">${this.title}</div>
+                    <div class="price">${this.price} &#36;</div>
+                    <button>Купить</button>
+                </div>`
     }
 }
 
-let cartIcon = document.querySelector('.cartIcon').addEventListener('click', () => {
-   let cartShow = document.querySelector('.showCart');
-    cartShow.classList.toggle('hide');
-});
+let listOfGoods = new Shop;
+listOfGoods.render();
 
 class Cart {
-    constructor(cart) {
-        this.removeProduct = [];
-        this.chekout = [];
+    constructor() {
+        this.addToCart = [];
+    }
+    getButton(){
+        let timeout = setTimeout( ()=>{
+            this.addToCart = document.querySelectorAll('.products > .item > button');
+            console.log(this.addToCart);
+        }, 100)
     }
 }
 
-let list = new ProductList();
-list.render();
+class CartItem{
+    constructor(item) {
+        this.title = item.title;
+        this.price = item.price;
+        this.quantity = item.quantity;
+    }
+
+    addHtml(){
+        return `<div class="item">
+                    <img src="img/picNoImg.jpg" alt="">
+                    <p>${this.title}</p>
+                    <p>${this.price}</p>
+                    <p>${this.quantity}</p>
+                 </div>`
+    }
+}
+
+let test = new Cart;
+test.getButton();
+
