@@ -4,3 +4,5 @@ shop/.idea/modules.xml
 shop/.idea/shop.iml
 shop/.idea/vcs.xml
 shop/.idea/workspace.xml
+*.xml
+*.iml
