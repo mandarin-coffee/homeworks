@@ -1,10 +1,8 @@
 const app = new Vue({
     el: '#app',
     data: {
-        //catalogUrl: '/catalogData.json',
-        products: [],
+        goods: [],
         cartGood: [],
-        //imgCatalog: 'img/picNoImg.jpg'
     },
     methods: {
         getJson(url) {
@@ -14,31 +12,40 @@ const app = new Vue({
                     console.log(error);
                 })
         },
-        addProduct(product) {
-            let cartItem = document.querySelector('.cartItem ');
-            let addedProduct = `<div class="item" data-id="${product.id}"><img src="img/picNoImg.jpg" alt="">
-                                <p>${product.title}</p>
-                                <p>${product.price * product.quantity} &#36;</p>
-                                <p>${product.quantity}</p></div>`;
-            cartItem.insertAdjacentHTML('beforeend', addedProduct);
-
-
-            console.log(product.id);
+        addProduct(good) {
+            let getCart = document.querySelector('.cartItem');
+            let cartHtml = `<div class="item" :data-id="good.id">
+                                <img src="img/picNoImg.jpg" alt="">
+                                <p class="title">${good.title}</p>
+                                <p class="price">${good.price * good.quantity} &#36;</p>
+                                <p class="quantity">${good.quantity}</p>
+                         </div>`;
+            getCart.insertAdjacentHTML('beforeend', cartHtml);
+            good.quantity++;
         },
+        // updateCart(element) {
+        //     let productId = document.querySelector('.products > .item').dataset.id;
+        //     let find = this.goods.find(good => good.id === productId);
+        //     if (find) {
+        //         find.quantity++;
+        //         this.updateCart(element);
+        //     } else {
+        //         let product = {
+        //             id_product: productId,
+        //             quantity: 1
+        //         };
+        //         this.goods = [good];
+        //     }
+        // }
     },
+    computed: {},
     mounted() {
         this.getJson('https://raw.githubusercontent.com/mandarin-coffee/json/master/goods.json')
             .then(data => {
                 for (let el of data) {
-                    this.products.push(el);
+                    this.goods.push(el);
                 }
             });
-        // this.getJson(`getProducts.json`)
-        //     .then(data => {
-        //         for(let el of data){
-        //             this.products.push(el);
-        //         }
-        //     })
     }
 });
 
