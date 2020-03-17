@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900&display=swap&subset=cyrillic"
           rel="stylesheet">
     <script src="https://kit.fontawesome.com/7829bd51fc.js" crossorigin="anonymous"></script>
@@ -17,41 +17,47 @@
         <div class="title"><h1>Verdant Shop</h1></div>
     </div>
 </header>
-<main>
-    <div class="container">
-        <div class="gridContainer">
-            <div class="products"></div>
-            <div class="cartWrapper">
-                <div class="wrap">
-                    <a href="#" class="btn"><i class="fas fa-shopping-cart"></i>Корзина</a>
+<div id="app">
+    <main>
+        <div class="container">
+            <div class="gridContainer">
+                <div class="products">
+                    <div class="item" :data-id="good.id" v-for="good of goods" :key="good.id">
+                        <img src="img/picNoImg.jpg" alt="">
+                        <div class="title">{{good.title}}</div>
+                        <div class="price">{{good.price}} &#36;</div>
+                        <button @click="addProduct(good)"
+                                :data-id="good.id"
+                                :data-title="good.title"
+                                :data-price="good.price">Купить</button>
+                    </div>
                 </div>
-                <div class="cart hide">
-                    <div class="cartCol">
-                        <p>Имя</p>
-                        <p>Цена</p>
-                        <p>Количество</p>
+                <div class="cartWrapper">
+                    <div class="wrap">
+                        <a href="#" class="btn"><i class="fas fa-shopping-cart"></i>Корзина</a>
                     </div>
-                    <hr>
-                    <div class="cartItem">
-                        <div class="item">
-                            <img src="img/picNoImg.jpg" alt="">
-                            <p>Куртка</p>
-                            <p>5000</p>
-                            <p>1 шт</p>
+                    <div class="cart hide">
+                        <div class="cartCol">
+                            <p>Имя</p>
+                            <p>Цена</p>
+                            <p>Количество</p>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="total">
-                        <p>Итого:</p>
-                        <p></p>
+                        <hr>
+                        <div class="cartItem">
+                        </div>
+                        <hr>
+                        <div class="total">
+                            <p>Итого:</p>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
+</div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <script src="js/shop.js"></script>
 <script src="js/hide.js"></script>
