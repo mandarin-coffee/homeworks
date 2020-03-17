@@ -12,24 +12,31 @@
     <title>Shop</title>
 </head>
 <body>
-<header>
-    <div class="headerMenu">
-        <div class="title"><h1>Verdant Shop</h1></div>
-    </div>
-</header>
 <div id="app">
+    <header>
+        <div class="headerMenu">
+            <div class="title"><h1>Verdant Shop</h1></div>
+            <div class="search">
+                <i class="fas fa-sync-alt" data-name="Сбросить фильтр" @click="refresh()" alt="Сбросить фильтр"></i>
+                <input type="text" placeholder="Search">
+                <i class="fas fa-search" @click="search(goods)"></i>
+            </div>
+        </div>
+    </header>
+
     <main>
         <div class="container">
             <div class="gridContainer">
                 <div class="products">
-                    <div class="item" :data-id="good.id" v-for="good of goods" :key="good.id">
+                    <div class="item" :data-id="good.id" :data-title="good.title" v-for="good of goods" :key="good.id">
                         <img src="img/picNoImg.jpg" alt="">
                         <div class="title">{{good.title}}</div>
                         <div class="price">{{good.price}} &#36;</div>
                         <button @click="addProduct(good)"
                                 :data-id="good.id"
                                 :data-title="good.title"
-                                :data-price="good.price">Купить</button>
+                                :data-price="good.price">Купить
+                        </button>
                     </div>
                 </div>
                 <div class="cartWrapper">
