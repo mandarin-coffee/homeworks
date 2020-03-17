@@ -36,7 +36,29 @@ const app = new Vue({
         //         };
         //         this.goods = [good];
         //     }
-        // }
+        // },
+
+        search(goods){
+            let myInput = document.querySelector('.search > input').value;
+            console.log(myInput);
+            for(let good of goods){
+                if(good.title == myInput){
+                    let getSearch = document.querySelectorAll('.products > .item');
+                    for(let searchItem of getSearch){
+                        if(searchItem.dataset['title'] !== myInput){
+                            console.log(searchItem);
+                            searchItem.classList.toggle('hide');
+                        }
+                    }
+                }
+            }
+        },
+        refresh(){
+            let myInput = document.querySelectorAll('.products > .item');
+            for(let searchItem of myInput){
+                searchItem.classList.remove('hide');
+            }
+        },
     },
     computed: {},
     mounted() {

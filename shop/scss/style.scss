@@ -19,12 +19,44 @@ header {
   .headerMenu {
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 
     .title {
       h1 {
         font-size: 36px;
         line-height: 65px;
         color: #696969;
+      }
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 18px;
+        margin-left: 10px;
+        color: #696969;
+        cursor: pointer;
+      }
+
+      i:hover{
+        color: #FAF0E6;
+      }
+
+      i:nth-child(1) {
+        position: relative;
+        margin-right: 10px;
+      }
+
+      input {
+        background: transparent;
+        height: 30px;
+        border-style: none;
+        border-bottom: 2px solid #696969;
+        padding: 0 7px;
+        font: 400 12px Roboto Slab;
       }
     }
   }
@@ -97,6 +129,10 @@ main {
             background-color: #D2691E;
             color: #C0C0C0;
           }
+        }
+
+        .hide {
+          display: none;
         }
       }
 
