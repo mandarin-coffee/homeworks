@@ -27,18 +27,7 @@
     <main>
         <div class="container">
             <div class="gridContainer">
-                <div class="products">
-                    <div class="item" :data-id="good.id" :data-title="good.title" v-for="good of goods" :key="good.id">
-                        <img src="img/picNoImg.jpg" alt="">
-                        <div class="title">{{good.title}}</div>
-                        <div class="price">{{good.price}} &#36;</div>
-                        <button @click="addProduct(good)"
-                                :data-id="good.id"
-                                :data-title="good.title"
-                                :data-price="good.price">Купить
-                        </button>
-                    </div>
-                </div>
+                <goods :goods="goods" @add-product="addProduct"></goods>
                 <div class="cartWrapper">
                     <div class="wrap">
                         <a href="#" class="btn"><i class="fas fa-shopping-cart"></i>Корзина</a>
@@ -50,8 +39,7 @@
                             <p>Количество</p>
                         </div>
                         <hr>
-                        <div class="cartItem">
-                        </div>
+                        <cart :cart-good="cartGood"></cart>
                         <hr>
                         <div class="total">
                             <p>Итого:</p>
@@ -66,6 +54,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+<script src="js/cartComponent.js"></script>
+<script src="js/productsComponent.js"></script>
 <script src="js/shop.js"></script>
 <script src="js/hide.js"></script>
 </body>

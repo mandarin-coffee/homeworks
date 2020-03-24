@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         goods: [],
         cartGood: [],
+        filtered: [],
     },
     methods: {
         getJson(url) {
@@ -13,37 +14,23 @@ const app = new Vue({
                 })
         },
         addProduct(good) {
-            let getCart = document.querySelector('.cartItem');
-            let cartHtml = `<div class="item" :data-id="good.id">
-                                <img src="img/picNoImg.jpg" alt="">
-                                <p class="title">${good.title}</p>
-                                <p class="price">${good.price * good.quantity} &#36;</p>
-                                <p class="quantity">${good.quantity}</p>
-                         </div>`;
-            getCart.insertAdjacentHTML('beforeend', cartHtml);
-            good.quantity++;
+            console.log(this.cartGood)
+            let find = this.cartGood.find(el => el.id === good.id);
+            if(find){
+                find.amount++;
+            } else {
+                const prod = Object.assign({amount: 1}, good);
+                this.cartGood.push(prod)
+            }
         },
-        // updateCart(element) {
-        //     let productId = document.querySelector('.products > .item').dataset.id;
-        //     let find = this.goods.find(good => good.id === productId);
-        //     if (find) {
-        //         find.quantity++;
-        //         this.updateCart(element);
-        //     } else {
-        //         let product = {
-        //             id_product: productId,
-        //             quantity: 1
-        //         };
-        //         this.goods = [good];
-        //     }
-        // },
 
         search(goods){
             let myInput = document.querySelector('.search > input').value;
-            console.log(myInput);
+            //let regexp = new RegExp(myInput, 'i');
             for(let good of goods){
-                if(good.title == myInput){
+                if(good.title === myInput){
                     let getSearch = document.querySelectorAll('.products > .item');
+                    console.log(myInput);
                     for(let searchItem of getSearch){
                         if(searchItem.dataset['title'] !== myInput){
                             console.log(searchItem);
@@ -62,10 +49,17 @@ const app = new Vue({
     },
     computed: {},
     mounted() {
-        this.getJson('https://raw.githubusercontent.com/mandarin-coffee/json/master/goods.json')
+        this.getJson(`https://raw.githubusercontent.com/mandarin-coffee/json/master/getCart.json`)
             .then(data => {
-                for (let el of data) {
-                    this.goods.push(el);
+                for (let item of data.contents){
+                    this.$data.cartGood.push(item);
+                }
+            });
+        this.getJson('https://raw.githubusercontent.com/mandarin-coffee/json/master/goods.json')
+            .then(myJson => {
+                for (let el of myJson) {
+                    this.$data.goods.push(el);
+                    this.$data.filtered.push(el);
                 }
             });
     }
