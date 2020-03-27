@@ -10,7 +10,7 @@ Vue.component('product', {
     props: ['product'],
     template: `
             <div class="item" :data-title="product.title">
-                <img src="img/picNoImg.jpg" alt="">
+                <img src="../img/picNoImg.jpg" alt="">
                 <div class="title">{{product.title}}</div>
                 <div class="price">{{product.price}} &#36;</div>
                 <button class="buy-btn"
