@@ -262,7 +262,7 @@ shop/node_modules/qs/test/parse.js
 shop/node_modules/qs/test/stringify.js
 shop/node_modules/qs/test/utils.js
 shop/node_modules/range-parser/HISTORY.md
-*.js
+*shop/node_modules
 shop/node_modules/range-parser/LICENSE
 shop/node_modules/range-parser/package.json
 shop/node_modules/range-parser/README.md
