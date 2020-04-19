@@ -1,5 +1,5 @@
 <?php
-    $title = "minimalistica";
+    $title = "minimalistica ".date(Y);
     $list = "<li><a href=\"#\">home</a></li>
 			<li><a href=\"#\">archive</a></li>
 			<li><a href=\"#\">contact</a></li>"
