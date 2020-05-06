@@ -14,8 +14,8 @@
                 <input type="text" placeholder="Search">
             </div>
             <div class="cart">
-                <button @click="showCart = !showCart"><i class="fas fa-shopping-basket"></i></button>
-                <div class="cartShow" v-show="showCart">
+               <button @click="showCart = !showCart"><i class="fas fa-shopping-basket"></i></button>
+               <div class="cartShow" v-show="showCart">
                     {{msgCart}}
                     <div class="cartWrapper">
                         <div class="cart hide">
@@ -25,7 +25,7 @@
                                 <p>Количество</p>
                             </div>
                             <hr>
-                            <cart :cart-good="cartGood"></cart>
+                            <div class="cart"></div>
                             <hr>
                             <div class="total">
                                 <p>Итого:</p>
