@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gallery{
+    width: 60%;
+    margin: 30px auto;
+    border: 1px solid DimGrey;
+    border-radius: 7px;
+}
+.galleryPic{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: center;
+}
+.galleryPic img{
+    width: 200px;
+}
+
